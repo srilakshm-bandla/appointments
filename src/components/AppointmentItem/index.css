@@ -1,0 +1,22 @@
+/* Write your CSS here */
+.list-items {
+  list-style-type: none;
+  width: 200px;
+  height: 80px;
+  display: flex;
+}
+
+.title {
+  color: #171f46;
+  font-family: 'Roboto';
+  font-size: 10px;
+}
+.date-format {
+  color: #b5b7c4;
+  font-family: 'Roboto';
+}
+
+.favorite-icon-container {
+  background-color: transparent;
+  border: none;
+}
