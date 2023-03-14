@@ -1,9 +1,16 @@
 // Write your code here
+
+import {format} from 'date-fns'
+
 import './index.css'
 
 const AppointmentItem = props => {
   const {appointmentDetails, toggleIsFavorite} = props
   const {title, isFavorite, date, id} = appointmentDetails
+
+  const x = new Date(date.toString())
+
+  const dateFormat = format(x, 'dd MMMM yyyy, EEEE')
 
   const starImgUrl = isFavorite
     ? 'https://assets.ccbp.in/frontend/react-js/star-filled-img.png'
@@ -17,7 +24,7 @@ const AppointmentItem = props => {
     <li className="list-items">
       <div>
         <p className="title">{title}</p>
-        <p className="date-format">{date}</p>
+        <p className="date-format">Date: {dateFormat}</p>
       </div>
       <div>
         <button

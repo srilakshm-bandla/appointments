@@ -1,8 +1,6 @@
 // Write your code here
 import {Component} from 'react'
 
-import {format} from 'date-fns'
-
 import {v4 as uuidv4} from 'uuid'
 
 import AppointmentItem from '../AppointmentItem'
@@ -11,12 +9,6 @@ import './index.css'
 
 class Appointments extends Component {
   state = {title: '', date: '', appointmentsList: [], isFilterStarActive: false}
-
-  componentDidMount() {
-    const {appointmentsList} = this.state
-    console.log(appointmentsList)
-    return appointmentsList
-  }
 
   toggleIsFavorite = id => {
     this.setState(prevState => ({
@@ -62,7 +54,7 @@ class Appointments extends Component {
   }
 
   render() {
-    const {title, date, appointmentsList, isFilterStarActive} = this.state
+    const {title, appointmentsList, isFilterStarActive} = this.state
 
     const filteredAppointments = appointmentsList.filter(
       each => each.isFavorite === isFilterStarActive,
@@ -81,6 +73,7 @@ class Appointments extends Component {
               </label>
               <br />
               <input
+                id="Title"
                 placeholder="Title"
                 className="input"
                 value={title}
@@ -93,6 +86,7 @@ class Appointments extends Component {
               <br />
               <input
                 type="date"
+                id="date"
                 className="input"
                 onChange={this.onChangeDate}
               />
@@ -116,8 +110,8 @@ class Appointments extends Component {
 
             <button
               type="button"
-              className="starred"
               data-testid="star"
+              className="starred"
               onClick={this.getStarredAppointments}
             >
               Starred
